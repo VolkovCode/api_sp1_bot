@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-PRACTICUM_TOKEN = os.getenv("AgAAAAAtLdfwAAYckZwe6hJ_b0W4uyGcOCYocB4")
-TELEGRAM_TOKEN = os.getenv("AAFgiAgLUMMeYszzrZM-NYqg0m-pHOAZTt0")
-CHAT_ID = os.getenv('319385142')
+PRACTICUM_TOKEN = os.getenv("PRACTICUM_TOKEN")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 proxy = telegram.utils.request.Request(proxy_url='https://110.137.65.25:3128/') 
 
 def parse_homework_status(homework):
@@ -32,7 +32,7 @@ def get_homework_statuses(current_timestamp):
 
 def send_message(message):
     bot = telegram.Bot(token=TELEGRAM_TOKEN, request=proxy)
-    return bot.send_message(chat_id=CHAT_ID, text='Привет, я ботик и у меня баги')
+    return bot.send_message(chat_id=CHAT_ID, text=message)
 
 
 def main():
